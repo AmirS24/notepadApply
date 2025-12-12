@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.vacral.notepadapply.MainActivity
+import com.vacral.notepadapply.Pref
 import com.vacral.notepadapply.databinding.FragmentOnBoardBinding
 import com.vacral.notepadapply.model.OnBoardModel
 import com.vacral.notepadapply.on_board.adapter.OnBoardAdapter
@@ -16,7 +16,7 @@ import com.vacral.notepadapply.on_board.adapter.OnBoardAdapter
 class OnBoardFragment : Fragment() {
     private lateinit var binding: FragmentOnBoardBinding
     private lateinit var adapter: OnBoardAdapter
-    
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,13 +27,21 @@ class OnBoardFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-          super.onViewCreated(view, savedInstanceState)
+        super.onViewCreated(view, savedInstanceState)
+        val pref = Pref(requireContext())
+        if(pref.isOnBoardShow()){
+            findNavController().navigate(
+                OnBoardFragmentDirections.actionOnBoardFragmentToMainFragment()
+            )
+            return
+        }
         adapter = OnBoardAdapter(getOnBoardList(), ::navigateToMain, ::onSkip)
         binding.vpOnBoard.adapter = adapter
         binding.circleIndicator.setViewPager(binding.vpOnBoard)
     }
 
     private fun navigateToMain(){
+        Pref(requireContext()).setOnBoardShow()
         findNavController().navigate(
             OnBoardFragmentDirections.actionOnBoardFragmentToMainFragment()
         )
@@ -57,7 +65,7 @@ class OnBoardFragment : Fragment() {
                 desc = "Синхронизация на всех устройствах. Доступ к записям в любое время и в любом месте." ,
                 lottie = "board_three.json"),
 
-        )
+            )
     }
 
 }

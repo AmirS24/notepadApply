@@ -11,10 +11,10 @@
         tools:layout="@layout/fragment_on_board">
 
         <action
-            android:id="@+id/action_onBoardFragment_to_mainFragment"
+            android:id="@+id/action_OnBoardFragment_to_mainFragment"
             app:destination="@id/mainFragment"
             app:popUpTo="@id/onBoardFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
