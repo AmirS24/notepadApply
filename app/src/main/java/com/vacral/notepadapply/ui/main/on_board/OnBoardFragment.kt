@@ -1,4 +1,4 @@
-package com.vacral.notepadapply.on_board
+package com.vacral.notepadapply.ui.main.on_board
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.vacral.notepadapply.MainActivity
-import com.vacral.notepadapply.Pref
+import com.vacral.notepadapply.data.local.Pref
 import com.vacral.notepadapply.databinding.FragmentOnBoardBinding
 import com.vacral.notepadapply.model.OnBoardModel
-import com.vacral.notepadapply.on_board.adapter.OnBoardAdapter
+import com.vacral.notepadapply.ui.main.on_board.adapter.OnBoardAdapter
 
 
 class OnBoardFragment : Fragment() {
@@ -29,41 +29,45 @@ class OnBoardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val pref = Pref(requireContext())
-        if(pref.isOnBoardShow()){
-            findNavController().navigate(
-                OnBoardFragmentDirections.actionOnBoardFragmentToMainFragment()
-            )
-            return
-        }
+
         adapter = OnBoardAdapter(getOnBoardList(), ::navigateToMain, ::onSkip)
         binding.vpOnBoard.adapter = adapter
         binding.circleIndicator.setViewPager(binding.vpOnBoard)
     }
 
-    private fun navigateToMain(){
+    private fun navigateToMain() {
         Pref(requireContext()).setOnBoardShow()
         findNavController().navigate(
             OnBoardFragmentDirections.actionOnBoardFragmentToMainFragment()
         )
     }
-    private fun onSkip(number: Int){
+
+    private fun onSkip(number: Int) {
         binding.vpOnBoard.currentItem = number
     }
+
     override fun onResume() {
         super.onResume()
         (activity as? MainActivity)?.enterImmersiveMode()
     }
-    private fun getOnBoardList(): List<OnBoardModel>{
+
+    private fun getOnBoardList(): List<OnBoardModel> {
         return listOf(
-            OnBoardModel(title = "Удобство",
-                desc = "Создавайте заметки в два клика! Записывайте мысли, идеи и важные задачи мгновенно" ,
-                lottie = "board_one.json"),
-            OnBoardModel(title = "Организация",
-                desc = "Организуйте заметки по папкам и тегам. Легко находите нужную информацию в любое время." ,
-                lottie = "board_two.json"),
-            OnBoardModel(title = "Синхронезация",
-                desc = "Синхронизация на всех устройствах. Доступ к записям в любое время и в любом месте." ,
-                lottie = "board_three.json"),
+            OnBoardModel(
+                title = "Удобство",
+                desc = "Создавайте заметки в два клика! Записывайте мысли, идеи и важные задачи мгновенно",
+                lottie = "board_one.json"
+            ),
+            OnBoardModel(
+                title = "Организация",
+                desc = "Организуйте заметки по папкам и тегам. Легко находите нужную информацию в любое время.",
+                lottie = "board_two.json"
+            ),
+            OnBoardModel(
+                title = "Синхронезация",
+                desc = "Синхронизация на всех устройствах. Доступ к записям в любое время и в любом месте.",
+                lottie = "board_three.json"
+            ),
 
             )
     }

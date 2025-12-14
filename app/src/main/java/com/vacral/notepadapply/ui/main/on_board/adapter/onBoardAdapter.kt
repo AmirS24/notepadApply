@@ -1,4 +1,4 @@
-package com.vacral.notepadapply.on_board.adapter
+package com.vacral.notepadapply.ui.main.on_board.adapter
 
 import android.view.LayoutInflater
 import android.view.View

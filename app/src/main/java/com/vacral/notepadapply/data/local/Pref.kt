@@ -1,8 +1,7 @@
-package com.vacral.notepadapply
+package com.vacral.notepadapply.data.local
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.text.BoringLayout
 import androidx.core.content.edit
 
 class Pref (context: Context) {
@@ -17,7 +16,7 @@ class Pref (context: Context) {
         return pref.getString("key_one", "Text")
     }
     fun setOnBoardShow(){
-        pref.edit(){
+        pref.edit{
             putBoolean("show", true)
         }
     }
