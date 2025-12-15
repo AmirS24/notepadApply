@@ -2,23 +2,22 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/onBoardFragment">
+    android:id="@+id/nav_graph">
 
     <fragment
         android:id="@+id/onBoardFragment"
-        android:name="com.vacral.notepadapply.on_board.OnBoardFragment"
+        android:name="com.vacral.notepadapply.ui.main.on_board.OnBoardFragment"
         tools:layout="@layout/fragment_on_board">
 
         <action
-            android:id="@+id/action_onBoardFragment_to_mainFragment"
+            android:id="@+id/action_OnBoardFragment_to_mainFragment"
             app:destination="@id/mainFragment"
             app:popUpTo="@id/onBoardFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.vacral.notepadapply.MainFragment"
+        android:name="com.vacral.notepadapply.ui.main.MainFragment"
         tools:layout="@layout/fragment_main_activity" />
 </navigation>

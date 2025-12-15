@@ -1,4 +1,4 @@
-package com.vacral.notepadapply.on_board.adapter
+package com.vacral.notepadapply.ui.main.on_board.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +10,9 @@ import com.vacral.notepadapply.model.OnBoardModel
 
 class OnBoardAdapter(
     private val listOnBoard: List<OnBoardModel>,
-    val navigateToMain: () -> Unit,
-    val onSkip: (Int) -> Unit
-) :
-    RecyclerView.Adapter<OnBoardAdapter.OnBoardViewHolder>() {
+    private val onStartClick: () -> Unit,
+    private val onSkipClick: (Int) -> Unit
+) : RecyclerView.Adapter<OnBoardAdapter.OnBoardViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OnBoardViewHolder {
         return OnBoardViewHolder(
@@ -22,7 +21,7 @@ class OnBoardAdapter(
     }
 
     override fun onBindViewHolder(holder: OnBoardViewHolder, position: Int) {
-        holder.onBind(listOnBoard[position], position == listOnBoard.lastIndex)
+        holder.onBind(listOnBoard[position], position)
     }
 
     override fun getItemCount() = listOnBoard.size
@@ -30,7 +29,7 @@ class OnBoardAdapter(
     inner class OnBoardViewHolder(private val binding: ItemOnBoardBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(model: OnBoardModel, isLast: Boolean) {
+        fun onBind(model: OnBoardModel, position: Int) {
             binding.apply {
                 tvConvenience.text = model.title
                 tvDesc.text = model.desc
@@ -38,8 +37,7 @@ class OnBoardAdapter(
                 lottie.repeatCount = LottieDrawable.INFINITE
                 lottie.playAnimation()
 
-
-                if (isLast) {
+                if (position == listOnBoard.lastIndex) {
                     btnStart.visibility = View.VISIBLE
                     tvSkip.visibility = View.GONE
                 } else {
@@ -48,15 +46,10 @@ class OnBoardAdapter(
                 }
 
                 btnStart.setOnClickListener {
-                    navigateToMain()
-                }
-                if (adapterPosition == listOnBoard.size - 1){
-                    tvSkip.visibility = View.INVISIBLE
-                }else{
-                    btnStart.visibility = View.INVISIBLE
+                    onStartClick()
                 }
                 tvSkip.setOnClickListener {
-            onSkip(listOnBoard.size)
+                    onSkipClick(position + 1)
                 }
             }
         }

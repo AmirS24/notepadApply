@@ -9,16 +9,41 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.fragment.NavHostFragment
+import com.vacral.notepadapply.data.local.Pref
+import com.vacral.notepadapply.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var pref: Pref
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        pref = Pref(this)
+
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
+
+        if (pref.isOnBoardShow()) {
+            navGraph.setStartDestination(R.id.mainFragment)
+        } else {
+            navGraph.setStartDestination(R.id.onBoardFragment)
+        }
+        navController.graph = navGraph
+
+
 
         supportActionBar?.hide()
         enableEdgeToEdge()
 
-        setContentView(R.layout.activity_main)
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
