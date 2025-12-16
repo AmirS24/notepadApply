@@ -5,26 +5,35 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.navigation.fragment.findNavController
 import com.vacral.notepadapply.MainActivity
 import com.vacral.notepadapply.data.local.Pref
 import com.vacral.notepadapply.databinding.FragmentOnBoardBinding
+import com.vacral.notepadapply.databinding.ItemOnBoardBinding
 import com.vacral.notepadapply.model.OnBoardModel
 import com.vacral.notepadapply.ui.main.on_board.adapter.OnBoardAdapter
 
 
 class OnBoardFragment : Fragment() {
     private lateinit var binding: FragmentOnBoardBinding
+
     private lateinit var adapter: OnBoardAdapter
+
+    private lateinit var pref: Pref
 
 
     override fun onCreateView(
+        
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View {
         binding = FragmentOnBoardBinding.inflate(inflater, container, false)
+
         return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,6 +42,8 @@ class OnBoardFragment : Fragment() {
         adapter = OnBoardAdapter(getOnBoardList(), ::navigateToMain, ::onSkip)
         binding.vpOnBoard.adapter = adapter
         binding.circleIndicator.setViewPager(binding.vpOnBoard)
+
+
     }
 
     private fun navigateToMain() {
