@@ -35,7 +35,7 @@ class AddNoteFragment : Fragment() {
             val desc = binding.etDesc.text.toString()
 
             App.database.dao()
-                .addNote(NoteModel(title = title, desc = desc,time = realTime))
+                .addNote(NoteModel(title = title, desc = desc, time = realTime))
 
             findNavController().navigateUp()
         }

@@ -1,11 +1,13 @@
 package com.vacral.notepadapply.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.vacral.notepadapply.R
 import com.vacral.notepadapply.data.local.Pref
 import com.vacral.notepadapply.databinding.FragmentMainActivityBinding
@@ -25,8 +27,11 @@ class MainFragment : Fragment() {
         pref = Pref(requireContext())
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.rvNotes.layoutManager =
+            LinearLayoutManager(requireContext())
         binding.rvNotes.adapter = adapter
         adapter.addNotes(App.database.dao().getAllNotes())
 
@@ -36,4 +41,10 @@ class MainFragment : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        adapter.addNotes(App.database.dao().getAllNotes())
+        Log.d("TEST_NOTES", "notes size = ${adapter.notesList.size}")
+
+    }
 }

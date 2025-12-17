@@ -1,42 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/dark">
 
     <TextView
         android:id="@+id/tv_skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Пропустить"
-        android:textStyle="bold"
-        android:textSize="16sp"
         android:layout_margin="16dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="Пропустить"
+        android:textColor="@color/orange"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/orange" />
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tv_skip"
+        android:layout_margin="16dp"
         android:fontFamily="@font/potta_one"
-        android:textSize="24sp"
         android:text="Notes"
         android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_skip" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="264dp"
         android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="32dp"
         app:cardCornerRadius="20dp"
-        app:layout_constraintTop_toBottomOf="@id/tv_notes"
-        android:layout_marginTop="32dp">
+        app:layout_constraintTop_toBottomOf="@id/tv_notes">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie"
@@ -50,56 +51,56 @@
         android:id="@+id/tv_convenience"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:layout_marginBottom="8dp"
         android:text="Удобство"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/card_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:layout_marginTop="46dp"
-        android:layout_marginBottom="8dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_view" />
 
     <TextView
         android:id="@+id/tv_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Создавайте заметки в два клика! Записывайте мысли, идеи и важные задачи мгновенно."
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_convenience"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="8dp"
+        android:text="Создавайте заметки в два клика! Записывайте мысли, идеи и важные задачи мгновенно."
         android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/gray" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_convenience" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Начать"
-        android:backgroundTint="@color/orange"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@id/tv_desc"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="68dp"
+        android:backgroundTint="@color/orange"
+        android:paddingHorizontal="78dp"
         android:paddingVertical="18dp"
-        android:paddingHorizontal="78dp" />
+        android:text="Начать"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_desc" />
 
     <me.relex.circleindicator.CircleIndicator3
         android:id="@+id/circleIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_start"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_desc"
-        android:padding="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_desc" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

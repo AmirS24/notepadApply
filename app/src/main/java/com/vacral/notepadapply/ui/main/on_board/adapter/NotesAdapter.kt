@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vacral.notepadapply.databinding.ItemNotesBinding
 import com.vacral.notepadapply.model.NoteModel
 
-class NotesAdapter(): RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
+class NotesAdapter() : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
     val notesList = arrayListOf<NoteModel>()
 
-    fun addNotes(notes: List<NoteModel>){
+    fun addNotes(notes: List<NoteModel>) {
         notesList.clear()
         notesList.addAll(notes)
         notifyDataSetChanged()
@@ -20,7 +20,13 @@ class NotesAdapter(): RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
         parent: ViewGroup,
         viewType: Int
     ): NotesViewHolder {
-        return NotesViewHolder(ItemNotesBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return NotesViewHolder(
+            ItemNotesBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(
@@ -33,8 +39,8 @@ class NotesAdapter(): RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
     override fun getItemCount() = notesList.size
 
 
-    class NotesViewHolder(private val binding: ItemNotesBinding)
-        : RecyclerView.ViewHolder(binding.root) {
+    class NotesViewHolder(private val binding: ItemNotesBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun onBind(model: NoteModel) {
             binding.apply {
                 tvTitle.text = model.title
@@ -42,4 +48,5 @@ class NotesAdapter(): RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
                 tvTime.text = model.time.toString()
             }
         }
-    }}
+    }
+}

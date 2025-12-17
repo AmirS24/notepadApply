@@ -7,7 +7,7 @@ import com.vacral.notepadapply.model.NoteModel
 
 @Dao
 interface NoteDao {
-    @Query("SELECT * FROM note_list")
+    @Query("SELECT * FROM notes")
     fun getAllNotes (): List<NoteModel>
     @Insert
     fun addNote(noteModel: NoteModel)
