@@ -10,7 +10,10 @@ class NotesAdapter(): RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
     val notesList = arrayListOf<NoteModel>()
 
     fun addNotes(notes: List<NoteModel>){
-        notesList.addAll(notesList)
+        notesList.clear()
+        notesList.addAll(notes)
+        notifyDataSetChanged()
+
     }
 
     override fun onCreateViewHolder(
@@ -32,11 +35,11 @@ class NotesAdapter(): RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
 
     class NotesViewHolder(private val binding: ItemNotesBinding)
         : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(noteModel: NoteModel) {
+        fun onBind(model: NoteModel) {
             binding.apply {
-                tvTitle.text = noteModel.title
-                tvDesc.text = noteModel.desc
-                tvTime.text = noteModel.time
+                tvTitle.text = model.title
+                tvDesc.text = model.desc
+                tvTime.text = model.time.toString()
             }
         }
     }}

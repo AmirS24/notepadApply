@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.appbar.MaterialToolbar
 import com.vacral.notepadapply.R
 import com.vacral.notepadapply.data.local.Pref
 import com.vacral.notepadapply.databinding.FragmentMainActivityBinding

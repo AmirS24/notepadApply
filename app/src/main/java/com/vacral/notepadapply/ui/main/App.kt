@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.vacral.notepadapply.data.local.AppDataBase
 
-class App: Application() {
+public final class App: Application() {
     companion object {
     lateinit var database: AppDataBase
 }
