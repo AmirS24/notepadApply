@@ -2,6 +2,7 @@ package com.vacral.notepadapply
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
@@ -22,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         pref = Pref(this)
 
         val navHostFragment =
@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
 
         if (pref.isOnBoardShow()) {
+
             navGraph.setStartDestination(R.id.mainFragment)
         } else {
             navGraph.setStartDestination(R.id.onBoardFragment)

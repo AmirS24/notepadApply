@@ -1,17 +1,22 @@
 package com.vacral.notepadapply.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.vacral.notepadapply.R
 import com.vacral.notepadapply.data.local.Pref
 import com.vacral.notepadapply.databinding.FragmentMainActivityBinding
+import com.vacral.notepadapply.ui.main.on_board.adapter.NotesAdapter
 
 class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainActivityBinding
-    var Text: String ="text"
+    private val adapter = NotesAdapter()
     private lateinit var pref: Pref
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,18 +27,24 @@ class MainFragment : Fragment() {
         pref = Pref(requireContext())
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnSave.setOnClickListener {
-            save()
+        binding.rvNotes.layoutManager =
+            LinearLayoutManager(requireContext())
+        binding.rvNotes.adapter = adapter
+        adapter.addNotes(App.database.dao().getAllNotes())
+
+        binding.fbAdd.setOnClickListener {
+            findNavController().navigate(R.id.addNoteFragment)
         }
-        Text = pref.getText().toString()
-
-    }
-    private fun save() {
-        Text = binding.editText.text.toString()
-        binding.text.setText(Text)
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        adapter.addNotes(App.database.dao().getAllNotes())
+        Log.d("TEST_NOTES", "notes size = ${adapter.notesList.size}")
+
+    }
 }

@@ -4,5 +4,4 @@ data class OnBoardModel(
     val title: String,
     val desc: String,
     val lottie: String,
-
 )
