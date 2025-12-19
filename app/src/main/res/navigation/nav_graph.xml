@@ -19,11 +19,23 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.vacral.notepadapply.ui.main.MainFragment"
-        tools:layout="@layout/fragment_main_activity" />
+        android:name="com.vacral.notepadapply.ui.main.main.MainFragment"
+        tools:layout="@layout/fragment_main_activity" >
+        <action
+            android:id="@+id/action_mainFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addNoteFragment"
         android:name="com.vacral.notepadapply.ui.main.add_note.AddNoteFragment"
         android:label="fragment_add_note"
-        tools:layout="@layout/fragment_add_note" />
+        tools:layout="@layout/fragment_add_note">
+        <argument
+            android:name="note"
+            app:argType="com.vacral.notepadapply.data.local.model.NoteModel"
+            app:nullable="true"
+            />
+
+    </fragment>
+
 </navigation>

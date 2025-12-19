@@ -21,8 +21,8 @@
 
     <ImageView
         android:id="@+id/iv_menu"
-        android:layout_width="18dp"
-        android:layout_height="12dp"
+        android:layout_width="24dp"
+        android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/ic_menu"
@@ -31,8 +31,8 @@
 
     <ImageView
         android:id="@+id/iv_typeNotes"
-        android:layout_width="18dp"
-        android:layout_height="16dp"
+        android:layout_width="20dp"
+        android:layout_height="22dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:src="@drawable/ic_type_notes"
@@ -82,10 +82,18 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fb_add"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_height="65dp"
+        android:layout_margin="20dp"
+        android:elevation="8dp"
+        app:srcCompat="@drawable/ic_add"
+        app:backgroundTint="@color/orange"
+        app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:shapeAppearanceOverlay="@style/FabCircle"
+        app:tint="@color/white"
+        app:maxImageSize="38dp"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

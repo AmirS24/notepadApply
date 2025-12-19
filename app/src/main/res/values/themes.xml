@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.NotepadApply" parent="Base.Theme.NotepadApply" />
+    <style name="FloatingActionButton">
+        <item name="cornerSize">0dp</item>
+    </style>
+    <style name="FabCircle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>
