@@ -39,6 +39,7 @@ class MainFragment : Fragment() {
         binding.rvNotes.adapter = adapter
         adapter.addNotes(App.database.dao().searchByTitle(""))
 
+
         binding.fbAdd.setOnClickListener {
             findNavController().navigate(
                 MainFragmentDirections.actionMainFragmentToAddNoteFragment(
@@ -66,6 +67,7 @@ class MainFragment : Fragment() {
             )
         )
     }
+
 
     override fun onResume() {
         super.onResume()

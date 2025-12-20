@@ -117,6 +117,24 @@ class AddNoteFragment : Fragment() {
                 selectColor(container, color)
             }
         }
+        val trashDelete = popupView.findViewById<View>(R.id.iv_trash)
+        val vStroke = popupView.findViewById<View>(R.id.v_stroke)
+        val deleteButton = popupView.findViewById<View>(R.id.btn_delete)
+        val noteDelete = args.note
+        if(noteDelete != null){
+            deleteButton.visibility = View.VISIBLE
+            vStroke.visibility = View.VISIBLE
+            trashDelete.visibility = View.VISIBLE
+            deleteButton.setOnClickListener {
+                App.database.dao().deleteNote(noteDelete)
+                popupWindow.dismiss()
+                findNavController().navigateUp()
+            }
+        }else{
+            trashDelete.visibility = View.GONE
+            vStroke.visibility = View.GONE
+            deleteButton.visibility = View.GONE
+        }
     }
 
     override fun onDestroyView() {
