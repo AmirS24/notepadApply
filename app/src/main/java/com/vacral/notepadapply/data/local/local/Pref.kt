@@ -1,4 +1,4 @@
-package com.vacral.notepadapply.data.local
+package com.vacral.notepadapply.data.local.local
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -8,7 +8,7 @@ class Pref (context: Context) {
     val pref: SharedPreferences = context.getSharedPreferences("key", Context.MODE_PRIVATE)
 
     fun setOnBoardShow(){
-        pref.edit{
+        pref.edit {
             putBoolean("show", true)
         }
     }

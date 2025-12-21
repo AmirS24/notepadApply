@@ -1,4 +1,4 @@
-package com.vacral.notepadapply.model
+package com.vacral.notepadapply.data.local.model
 
 data class OnBoardModel(
     val title: String,

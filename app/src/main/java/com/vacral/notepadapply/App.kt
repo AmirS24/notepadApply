@@ -1,8 +1,8 @@
-package com.vacral.notepadapply.ui.main
+package com.vacral.notepadapply
 
 import android.app.Application
 import androidx.room.Room
-import com.vacral.notepadapply.data.local.AppDataBase
+import com.vacral.notepadapply.data.local.local.AppDataBase
 
 public final class App : Application() {
     companion object {

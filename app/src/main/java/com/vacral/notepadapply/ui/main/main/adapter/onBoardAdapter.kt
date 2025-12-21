@@ -1,4 +1,4 @@
-package com.vacral.notepadapply.ui.main.on_board.adapter
+package com.vacral.notepadapply.ui.main.main.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.lottie.LottieDrawable
 import com.vacral.notepadapply.databinding.ItemOnBoardBinding
-import com.vacral.notepadapply.model.OnBoardModel
+import com.vacral.notepadapply.data.local.model.OnBoardModel
 
 class OnBoardAdapter(
     private val listOnBoard: List<OnBoardModel>,

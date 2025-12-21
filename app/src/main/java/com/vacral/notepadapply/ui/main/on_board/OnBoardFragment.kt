@@ -5,14 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.PickVisualMediaRequest
 import androidx.navigation.fragment.findNavController
-import com.vacral.notepadapply.MainActivity
-import com.vacral.notepadapply.data.local.Pref
+import com.vacral.notepadapply.ui.main.MainActivity
+import com.vacral.notepadapply.data.local.local.Pref
 import com.vacral.notepadapply.databinding.FragmentOnBoardBinding
-import com.vacral.notepadapply.databinding.ItemOnBoardBinding
-import com.vacral.notepadapply.model.OnBoardModel
-import com.vacral.notepadapply.ui.main.on_board.adapter.OnBoardAdapter
+import com.vacral.notepadapply.data.local.model.OnBoardModel
+import com.vacral.notepadapply.ui.main.main.adapter.OnBoardAdapter
 
 
 class OnBoardFragment : Fragment() {
