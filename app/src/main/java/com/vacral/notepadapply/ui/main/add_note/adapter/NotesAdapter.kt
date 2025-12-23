@@ -1,4 +1,4 @@
-package com.vacral.notepadapply.ui.main.main.adapter
+package com.vacral.notepadapply.ui.main.add_note.adapter
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -6,12 +6,11 @@ import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.vacral.notepadapply.R
-import com.vacral.notepadapply.databinding.ItemNotesBinding
 import com.vacral.notepadapply.data.local.model.NoteModel
+import com.vacral.notepadapply.databinding.ItemNotesBinding
 
 class NotesAdapter(
     val onLongClick: (NoteModel) -> Unit,
@@ -88,7 +87,3 @@ class NotesAdapter(
 
     }
 }
-
-
-
-

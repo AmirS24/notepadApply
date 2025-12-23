@@ -31,11 +31,16 @@ class MainActivity : AppCompatActivity() {
 
         val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
 
-        if (pref.isOnBoardShow()) {
-
-            navGraph.setStartDestination(R.id.mainFragment)
-        } else {
-            navGraph.setStartDestination(R.id.onBoardFragment)
+        when {
+            pref.isRegister() -> {
+                navGraph.setStartDestination(R.id.mainFragment)
+            }
+            pref.isOnBoardShow() -> {
+                navGraph.setStartDestination(R.id.registerFragment)
+            }
+            else -> {
+                navGraph.setStartDestination(R.id.onBoardFragment)
+            }
         }
         navController.graph = navGraph
 

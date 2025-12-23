@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "747633714018",
+    "project_id": "notes-c20e2",
+    "storage_bucket": "notes-c20e2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747633714018:android:1ede3371d9c189f2df023b",
+        "android_client_info": {
+          "package_name": "com.vacral.notepadapply"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "747633714018-5m3912hv1t3onpf30bdu0ndh44km5lve.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vacral.notepadapply",
+            "certificate_hash": "479bcb53bca0bfe2006b3e214e522368db537202"
+          }
+        },
+        {
+          "client_id": "747633714018-ko2h3sl8ls37p22t39sgae5e2pt3bmkr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-eLh4PW7MR6f_h0skcHlbGMk_4xJFZzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "747633714018-ko2h3sl8ls37p22t39sgae5e2pt3bmkr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
