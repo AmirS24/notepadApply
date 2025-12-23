@@ -43,6 +43,7 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.rvNotes.layoutManager =
             LinearLayoutManager(requireContext())
         binding.rvNotes.adapter = adapter
@@ -131,11 +132,7 @@ class MainFragment : Fragment() {
         }
 
     }
-    private fun setupRecycler(){
-        binding.rvNotes.layoutManager = LinearLayoutManager(requireContext())
 
-
-    }
     private fun toggleLayout() {
         isGrid = !isGrid
 
