@@ -29,4 +29,5 @@ class Pref (context: Context) {
     fun clearRegister(){
         pref.edit().clear().apply()
     }
+
     }

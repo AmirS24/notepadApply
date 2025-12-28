@@ -46,6 +46,7 @@ class MainFragment : Fragment() {
 
         binding.rvNotes.layoutManager =
             LinearLayoutManager(requireContext())
+
         binding.rvNotes.adapter = adapter
         adapter.addNotes(App.database.dao().searchByTitle(""))
 
