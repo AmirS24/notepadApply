@@ -10,7 +10,7 @@ import com.vacral.notepadapply.ui.main.MainActivity
 import com.vacral.notepadapply.data.local.local.Pref
 import com.vacral.notepadapply.databinding.FragmentOnBoardBinding
 import com.vacral.notepadapply.data.local.model.OnBoardModel
-import com.vacral.notepadapply.ui.main.main.adapter.OnBoardAdapter
+import com.vacral.notepadapply.ui.main.on_board.adapter.OnBoardAdapter
 
 
 class OnBoardFragment : Fragment() {
@@ -47,7 +47,7 @@ class OnBoardFragment : Fragment() {
     private fun navigateToMain() {
         Pref(requireContext()).setOnBoardShow()
         findNavController().navigate(
-            OnBoardFragmentDirections.actionOnBoardFragmentToMainFragment()
+            OnBoardFragmentDirections.actionOnBoardFragmentToRegisterFragment()
         )
     }
 

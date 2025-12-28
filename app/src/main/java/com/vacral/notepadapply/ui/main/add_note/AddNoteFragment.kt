@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.PopupWindow
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -41,9 +42,13 @@ class AddNoteFragment : Fragment() {
             noteColor = it.color
         }
 
-        binding.tvComplete.setOnClickListener { saveNote() }
+        binding.tvComplete.setOnClickListener {
+        if(binding.tvComplete.isEnabled) {  saveNote() } }
         binding.ivBack.setOnClickListener { findNavController().navigateUp() }
         binding.ivSetColor.setOnClickListener { showColorPopup(binding.ivSetColor) }
+        binding.etTitle.addTextChangedListener{updateSaveButtonState()}
+        binding.etDesc.addTextChangedListener{updateSaveButtonState()}
+        updateSaveButtonState()
     }
 
     private fun saveNote() {
@@ -140,6 +145,21 @@ class AddNoteFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    private fun updateSaveButtonState(){
+        val title = binding.etTitle.text.toString().trim()
+        val desc = binding.etDesc.text.toString().trim()
+
+        val isValid = title.isNotEmpty() && desc.isNotEmpty()
+
+        binding.tvComplete.isEnabled = isValid
+        binding.tvComplete.setTextColor(
+            if(isValid){
+                requireContext().getColor(R.color.orange)
+            }else{
+                requireContext().getColor(R.color.btn_disabled)
+            }
+        )
     }
 }
 

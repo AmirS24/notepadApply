@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#b9b9b9</color>
     <color name="orange">#d88b02</color>
+    <color name="btn_disabled">#BDBDBD</color>
     <color name="dark">#252525</color>
     <color name="white_dark">#535353</color>
     <color name="red">#ff3b3b</color>
